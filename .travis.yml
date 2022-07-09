@@ -25,18 +25,13 @@ script:
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
   - docker build -t udagram-frontend ./udagram-frontend
   - docker tag udagram-api-feed stevenaraka/udagram-api-feed:v1
-  - docker tag udagram-api-feed stevenaraka/udagram-api-user:v1
-  - docker tag udagram-api-feed stevenaraka/udagram-reverseproxy:v1
-  - docker tag udagram-api-feed stevenaraka/udagram-frontend:v1
-
-env:
-  - DB=postgres
-  - SH=bash
+  - docker tag udagram-api-user stevenaraka/udagram-api-user:v1
+  - docker tag udagram-reverseproxy stevenaraka/udagram-reverseproxy:v1
+  - docker tag udagram-frontend stevenaraka/udagram-frontend:v1
 
 # Push images
 # Assuming DOCKERHUB_PASSWORD and DOCKERHUB_USERNAME are set in the Travis repository settings
 after_success:
-  - echo "$DOCKERHUB_USERNAME"
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
