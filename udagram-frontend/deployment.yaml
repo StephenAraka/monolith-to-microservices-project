@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: stevenaraka/udagram-frontend:v1
+        image: stevenaraka/udagram-frontend:v2
         ports:
         - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: postgres-config
