@@ -15,7 +15,7 @@ spec:
         app: udagram-api-user
     spec:
       containers:
-      - image: stevenaraka/udagram-api-user:v2
+      - image: stevenaraka/udagram-api-user:v3
         name: udagram-api-user
         imagePullPolicy: Always          
         resources:
