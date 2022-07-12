@@ -29,5 +29,5 @@ spec:
         - containerPort: 8080
         envFrom:
           - configMapRef:
-              name: env-config
-      restartPolicy: Always
+              name: env-config-map
+      # restartPolicy: Always

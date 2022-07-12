@@ -15,10 +15,19 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - name: udagram-api-feed
-        image: stevenaraka/udagram-api-feed:v2
+      - image: stevenaraka/udagram-api-feed:v2
+        name: udagram-api-feed
+        imagePullPolicy: Always          
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "100m"
+          limits:
+            memory: "400Mi"
+            cpu: "200m"       
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         envFrom:
           - configMapRef:
-              name: env-config
+              name: env-config-map
+      restartPolicy: Always

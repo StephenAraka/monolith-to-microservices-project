@@ -15,10 +15,19 @@ spec:
         app: udagram-api-user
     spec:
       containers:
-      - name: udagram-api-user
-        image: stevenaraka/udagram-api-user:v2
+      - image: stevenaraka/udagram-api-user:v2
+        name: udagram-api-user
+        imagePullPolicy: Always          
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "100m"
+          limits:
+            memory: "400Mi"
+            cpu: "200m"
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         envFrom:
           - configMapRef:
-              name: env-config
+              name: env-config-map
+      restartPolicy: Always

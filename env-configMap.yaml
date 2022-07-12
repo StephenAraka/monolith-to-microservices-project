@@ -1,9 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: postgres-config
+  name: env-config-map
 data:
-  postgres_username: "databaseyangu"
   postgres_host: "databaseyangu.cewajsuytifu.us-east-1.rds.amazonaws.com"
   postgres_db: "databaseyangu"
   postgres_password: "databaseyangu"
