@@ -15,19 +15,9 @@ spec:
         app: udagram-reverseproxy
     spec:
       containers:
-      - image: stevenaraka/udagram-reverseproxy:v2
+      - image: stevenaraka/udagram-reverseproxy:v4
         name: udagram-reverseproxy
-        imagePullPolicy: Always          
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"       
+        imagePullPolicy: Always                 
         ports:
         - containerPort: 8080
-        envFrom:
-          - configMapRef:
-              name: env-config-map
-      # restartPolicy: Always
+      restartPolicy: Always

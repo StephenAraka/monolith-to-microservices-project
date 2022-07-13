@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: udagram-frontend
-  labels:
-    app: udagram-frontend
 spec:
   replicas: 2
   selector:
@@ -16,14 +14,7 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: stevenaraka/udagram-frontend:v2
-        resources:
-          requests:
-            memory: "200Mi"
-            cpu: "100m"
-          limits:
-            memory: "400Mi"
-            cpu: "200m"
+        image: stevenaraka/udagram-frontend:v4
         ports:
         - containerPort: 80
         envFrom:
