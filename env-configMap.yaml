@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: env-config-map
 data:
-  postgres_host: databaseyangu.cewajsuytifu.us-east-1.rds.amazonaws.com
-  postgres_db: databaseyangu
-  aws_bucket: arn:aws:s3:::project3-561598690958
-  aws_region: us-east-1
-  aws_profile: microservices
-  jwt_secret: testing
-  url: http://localhost:8100
+  POSTGRES_HOST: databaseyangu.cewajsuytifu.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: databaseyangu
+  AWS_BUCKET: arn:aws:s3:::project3-561598690958
+  AWS_REGION: us-east-1
+  AWS_PROFILE: microservices
+  JWT_SECRET: testing
+  URL: http://localhost:8100

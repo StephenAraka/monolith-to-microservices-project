@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: udagram-api-user
+  labels:
+    app: udagram-api-user
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-user
@@ -13,14 +15,13 @@ spec:
         app: udagram-api-user
     spec:
       containers:
-      - image: stevenaraka/udagram-api-user:v4
+      - image: stevenaraka/udagram-api-user:v6
         name: udagram-api-user
         resources:
-          requests:
-            memory: "400Mi"
           limits:
-            memory: "800Mi"
-        args: ["--vm", "1", "--vm-bytes", "600M", "--vm-hang", "1"]
+            cpu: 500m
+          requests:
+            cpu: 250m
         ports:
         - containerPort: 8080
         env:
@@ -28,44 +29,44 @@ spec:
           valueFrom:
             secretKeyRef:
               name: db-credentials
-              key: username
+              key: POSTGRES_USERNAME
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-credentials
-              key: password
+              key: POSTGRES_PASSWORD
         - name: POSTGRES_HOST
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: postgres_host
+              key: POSTGRES_HOST
         - name: POSTGRES_DB
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: postgres_db
+              key: POSTGRES_DB
         - name: AWS_BUCKET
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: aws_bucket
+              key: AWS_BUCKET
         - name: AWS_REGION
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: aws_region
+              key: AWS_REGION
         - name: AWS_PROFILE
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: aws_profile
+              key: AWS_PROFILE
         - name: JWT_SECRET
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: jwt_secret
+              key: JWT_SECRET
         - name: URL
           valueFrom:
             configMapKeyRef:
               name: env-config-map
-              key: url
+              key: URL
