@@ -15,7 +15,7 @@ spec:
         app: udagram-api-user
     spec:
       containers:
-      - image: stevenaraka/udagram-api-user:v4
+      - image: stevenaraka/udagram-api-user:v6
         name: udagram-api-user
         resources:
           limits:

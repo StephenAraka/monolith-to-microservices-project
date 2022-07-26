@@ -15,7 +15,7 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - image: stevenaraka/udagram-api-feed:v5
+      - image: stevenaraka/udagram-api-feed:v6
         name: udagram-api-feed
         resources:
           limits:
