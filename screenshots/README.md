@@ -13,8 +13,11 @@ To help review your infrastructure, please include the following screenshots in 
 * To verify Kubernetes pods are deployed properly
 ```bash
 kubectl get pods
+& 
+kubectl get deployments
 ```
 ![Kubectl GET pods](/screenshots/5_kubectl_pods.png)
+![Kubectl GET pods](/screenshots/12_get_deloyment.png)
 * To verify Kubernetes services are properly set up
 ```bash
 kubectl describe services
@@ -30,6 +33,9 @@ kubectl describe hpa
 kubectl logs {pod_name}
 ```
 ![Kubectl LOGS](/screenshots/10_logs.png)
+
+* Backend Logs (/feed)
+![Kubectl LOGS](/screenshots/11_logs.png)
 
 #### OTHER SCREENSHOTS
 * Kubectl Apply
